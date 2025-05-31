@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Laboratorio 04: Pruebas Unitarias con Jest en React
 
-## Getting Started
+Este laboratorio tiene como objetivo proporcionar una introducción práctica a las pruebas unitarias en aplicaciones React utilizando Jest y React Testing Library.
 
-First, run the development server:
+## Aplicación Todo List
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+La aplicación desarrollada es una lista de tareas (Todo List) con las siguientes funcionalidades:
+
+- Añadir nuevas tareas
+- Marcar tareas como completadas
+- Eliminar tareas
+- Filtrar tareas por estado (todas, activas, completadas)
+- Ver estadísticas de tareas
+- Borrar todas las tareas completadas
+
+## Estructura del Proyecto
+
+```
+app/
+├── components/
+│   ├── Todo.tsx               # Componente principal que integra todos los demás
+│   ├── TodoForm.tsx           # Formulario para añadir nuevas tareas
+│   ├── TodoItem.tsx           # Componente individual para cada tarea
+│   ├── TodoList.tsx           # Lista de tareas
+│   ├── TodoFilter.tsx         # Filtros para las tareas
+│   ├── TodoStats.tsx          # Estadísticas de tareas
+│   └── __tests__/             # Directorio de pruebas
+│       ├── TodoItem.test.tsx  # Pruebas para TodoItem
+│       ├── TodoForm.test.tsx  # Pruebas para TodoForm
+│       └── TodoList.test.tsx  # Pruebas para TodoList
+├── page.tsx                   # Página principal
+└── layout.tsx                 # Layout de la aplicación
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Instrucciones del Laboratorio
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+En este laboratorio, exploraremos cómo escribir pruebas unitarias efectivas siguiendo el patrón **Prepare, Execute and Validate**:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Prepare**: Configurar el entorno de prueba y los datos necesarios
+2. **Execute**: Realizar la acción que queremos probar
+3. **Validate**: Verificar que el resultado es el esperado
 
-## Learn More
+### Ejercicios
 
-To learn more about Next.js, take a look at the following resources:
+#### Ejercicio 1: Completar prueba de TodoItem
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Completa el test para verificar que el componente `TodoItem` muestra correctamente el texto de una tarea con caracteres especiales.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Archivo: `app/components/__tests__/TodoItem.test.tsx`
 
-## Deploy on Vercel
+#### Ejercicio 2: Completar prueba de TodoForm
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Completa el test para verificar que el componente `TodoForm` maneja correctamente la entrada de texto con espacios al inicio o final.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Archivo: `app/components/__tests__/TodoForm.test.tsx`
+
+#### Ejercicio 3: Completar prueba de TodoList
+
+Completa el test para verificar que el componente `TodoList` pasa correctamente las funciones onToggle y onDelete a cada TodoItem.
+
+Archivo: `app/components/__tests__/TodoList.test.tsx`
+
+## Casos de Prueba
+
+En las pruebas existentes, podrás encontrar ejemplos de:
+
+- **Happy Path**: Pruebas que verifican el comportamiento correcto cuando todo funciona como se espera
+- **Unhappy Path**: Pruebas que verifican el comportamiento cuando hay situaciones inesperadas o errores
+
+## Ejecución de Pruebas
+
+Para ejecutar las pruebas, utiliza el siguiente comando:
+
+```bash
+npm test
+```
+
+Para ejecutar las pruebas en modo observador (útil durante el desarrollo):
+
+```bash
+npm run test:watch
+```
+
+## Recursos Adicionales
+
+- [Jest Documentation](https://jestjs.io/docs/getting-started)
+- [React Testing Library Documentation](https://testing-library.com/docs/react-testing-library/intro/)
+- [Jest DOM Testing Library](https://github.com/testing-library/jest-dom)
