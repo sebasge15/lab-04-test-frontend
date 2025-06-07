@@ -42,4 +42,4 @@ next-env.d.ts
 
 # archivos de teoría y pruebas
 theory.md
-/app/components/__tests__
+hidden_tests/
