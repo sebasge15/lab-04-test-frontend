@@ -58,8 +58,21 @@ export default function TodoApp() {
   });
 
   return (
-    <div className="max-w-2xl mx-auto my-8 p-6 bg-white rounded-lg shadow-md">
-      <h1 className="text-3xl font-bold text-center mb-8">Lista de Tareas</h1>
+    <div
+      className="max-w-2xl mx-auto my-8 p-8 rounded-xl shadow-lg border"
+      style={{
+        backgroundColor: "var(--card-background)",
+        borderColor: "var(--border-color)",
+        boxShadow:
+          "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+      }}
+    >
+      <h1
+        className="text-4xl font-bold text-center mb-8 tracking-tight"
+        style={{ color: "var(--foreground)" }}
+      >
+        Lista de Tareas
+      </h1>
 
       <TodoForm onAddTodo={addTodo} />
 

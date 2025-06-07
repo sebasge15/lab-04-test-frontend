@@ -32,6 +32,7 @@ export default function TodoList({
           key={todo.id}
           id={todo.id}
           text={todo.text}
+          dataTestId={`todo-item-${todo.id}`}
           completed={todo.completed}
           onToggle={onToggleTodo}
           onDelete={onDeleteTodo}

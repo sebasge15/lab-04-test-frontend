@@ -23,13 +23,16 @@ describe("TodoItem Component", () => {
         completed={mockTodo.completed}
         onToggle={mockToggle}
         onDelete={mockDelete}
+        dataTestId={`todo-item-${mockTodo.id}`}
       />
     );
 
     // Validate: verificar que el texto y el checkbox se muestran correctamente
-    expect(screen.getByTestId("todo-text")).toHaveTextContent("Comprar leche");
+    expect(screen.getByTestId("todo-item-1")).toHaveTextContent(
+      "Comprar leche"
+    );
     expect(screen.getByTestId("todo-checkbox")).not.toBeChecked();
-    expect(screen.getByTestId("todo-text")).not.toHaveClass("line-through");
+    expect(screen.getByTestId("todo-item-1")).not.toHaveClass("line-through");
   });
 
   it("renderiza correctamente una tarea completada", () => {
@@ -50,12 +53,13 @@ describe("TodoItem Component", () => {
         completed={mockTodo.completed}
         onToggle={mockToggle}
         onDelete={mockDelete}
+        dataTestId={`todo-item-${mockTodo.id}`}
       />
     );
 
     // Validate: verificar que el texto aparece tachado y el checkbox marcado
     expect(screen.getByTestId("todo-checkbox")).toBeChecked();
-    expect(screen.getByTestId("todo-text")).toHaveClass("line-through");
+    expect(screen.getByTestId("todo-item-1")).toHaveClass("line-through");
   });
 
   it("llama a onToggle cuando se hace clic en el checkbox", () => {
@@ -71,6 +75,7 @@ describe("TodoItem Component", () => {
         completed={false}
         onToggle={mockToggle}
         onDelete={mockDelete}
+        dataTestId={`todo-item-1`}
       />
     );
 

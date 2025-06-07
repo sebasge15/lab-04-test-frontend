@@ -2,28 +2,6 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import TodoList, { Todo } from "../TodoList";
 
-// Mock del componente TodoItem para aislar las pruebas
-jest.mock("../TodoItem", () => {
-  return function MockTodoItem({
-    id,
-    text,
-    completed,
-  }: {
-    id: number;
-    text: string;
-    completed: boolean;
-  }) {
-    return (
-      <div
-        data-testid={`todo-item-${id}`}
-        className={completed ? "completed" : ""}
-      >
-        {text}
-      </div>
-    );
-  };
-});
-
 describe("TodoList Component", () => {
   // Happy path tests
   it("renderiza un mensaje cuando no hay tareas", () => {

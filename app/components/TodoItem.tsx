@@ -4,6 +4,7 @@ export interface TodoItemProps {
   completed: boolean;
   onToggle: (id: number) => void;
   onDelete: (id: number) => void;
+  dataTestId?: string;
 }
 
 export default function TodoItem({
@@ -12,6 +13,7 @@ export default function TodoItem({
   completed,
   onToggle,
   onDelete,
+  dataTestId,
 }: TodoItemProps) {
   return (
     <div className="flex items-center justify-between p-4 border-b border-gray-200">
@@ -25,7 +27,7 @@ export default function TodoItem({
         />
         <span
           className={`${completed ? "line-through text-gray-400" : ""}`}
-          data-testid="todo-text"
+          data-testid={`${dataTestId}`}
         >
           {text}
         </span>
