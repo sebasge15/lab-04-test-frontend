@@ -1,6 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import TodoItem from "../TodoItem";
+import { text } from "stream/consumers";
 
 // Prepare, Execute and Validate pattern
 describe("TodoItem Component", () => {
@@ -112,5 +113,22 @@ describe("TodoItem Component", () => {
   it("renderiza correctamente una tarea con caracteres especiales", () => {
     // TODO: Implementar el test siguiendo el patrón Prepare, Execute, Validate
     // Pista: Debes verificar que caracteres como &, <, >, ", etc. se muestren correctamente
+    //Preparar
+    const mockOnToggle = jest.fn();
+    const mockOnDelete = jest.fn();
+
+    const propsMock = {
+      id:1,
+      text: "Tarea con caññacteres especiales", completed : false,
+      onToggle: mockOnToggle,
+      onDelete: mockOnToggle,
+      dataTestId: "todo-item-1"
+    };
+    //Ejecutar
+    render(<TodoItem {...propsMock}/>)
+
+    //Validar
+    expect(screen.getByTestId("todo-item-1")).toHaveTextContent("Tarea con caññacteres especiales");
+
   });
 });

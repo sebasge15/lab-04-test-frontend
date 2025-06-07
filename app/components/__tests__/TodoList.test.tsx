@@ -57,5 +57,17 @@ describe("TodoList Component", () => {
   it("pasa correctamente las funciones onToggle y onDelete a cada TodoItem", () => {
     // TODO: Implementar el test siguiendo el patrón Prepare, Execute, Validate
     // Pista: Deberás modificar el mock de TodoItem para verificar que recibe las props correctas
+    //Preparar
+    const mockOnToggleTodo = jest.fn();
+    const mockOnDeleteTodo = jest.fn();
+
+    const propsMock = {
+      id: 1,
+      text: "gaa",
+      completed: true
+    };
+    //Executar
+    render(<TodoList {...propsMock})
+    //Validar
   });
 });
