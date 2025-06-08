@@ -1,3 +1,45 @@
+# Happy y Unhappy paths del proyecto Sprint 2
+# Happy Path
+1. Se abre el modal al seleccionar “cerrado”
+	•	Precondición: Hay una publicación con estado distinto de "cerrado".
+	•	Acción: Cambiar el estado de la publicación a "cerrado".
+	•	Resultado esperado: El modal con el texto "Deja una Reseña" aparece en pantalla.
+
+2. Se puede escribir una reseña
+	•	Acción: Escribir en el textarea dentro del modal.
+	•	Resultado esperado: El valor del textarea se actualiza correctamente y es legible en la UI.
+
+3. Se puede seleccionar la calificación (slider)
+	•	Acción: Mover el input range de 3 a otro valor.
+	•	Resultado esperado: Se actualiza el valor visible de estrellas, por ejemplo: "Valor: 4 estrellas".
+
+4. Se envía la reseña correctamente
+	•	Acción: Click en el botón "Enviar Reseña".
+	•	Resultado esperado:
+	•	Se llama a ClienteService.enviarReseña con los datos correctos.
+	•	Se actualiza la publicación a estado "cerrado".
+	•	Se oculta el modal.
+
+5. Cancelar cierra el modal sin guardar
+	•	Acción: Click en el botón "Cancelar".
+	•	Resultado esperado: El modal desaparece sin hacer ninguna llamada a la API.
+
+
+# UNHAPPY PATHS
+
+1. Fallo en el envío de la reseña
+	•	Acción: ClienteService.enviarReseña lanza un error (mock).
+	•	Resultado esperado: Se muestra un mensaje de error como "Error al enviar la reseña." y el modal no se cierra.
+
+2. El usuario intenta enviar la reseña sin escribir comentario (los comentarios son obligatorios)
+	•	Acción: Dejar el textarea vacío y hacer click en “Enviar Reseña”.
+	•	Resultado esperado: No se llama al servicio y opcionalmente se muestra un mensaje de validación.
+
+3. Slider fuera de rango
+	•	Acción: Forzar programáticamente un valor fuera del rango del slider (ej. 10).
+	•	Resultado esperado: La aplicación no rompe; se puede normalizar el valor a 5 o ignorarlo.
+
+
 # Laboratorio 04: Pruebas Unitarias con Jest en React
 
 Este laboratorio tiene como objetivo proporcionar una introducción práctica a las pruebas unitarias en aplicaciones React utilizando Jest y React Testing Library.
